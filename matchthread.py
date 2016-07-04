@@ -14,7 +14,6 @@ import datetime
 import requests
 import requests.auth
 import traceback
-from twilio.rest import TwilioRestClient
 from collections import Counter
 from time import sleep
 
@@ -570,15 +569,7 @@ def check_and_create():
                                                                    " work within five minutes of the thread's"
                                                                    " creation). This probably means that I can't"
                                                                    " find the right match - sorry!*")
-                '''
-                account_sid = 'AC2799d2a62369c35a8461b5d6e27a19ac'
-                authtoken = 'bd7274f70c7d3d8c92e59d26b3905ea1'
-                twiliocli = TwilioRestClient(account_sid, authtoken)
-                mytwilionumber = '+17693012706'
-                my = '+14044346571'
-                twiliocli.messages.create(body='Match Thread created via PM',
-                                          from_=mytwilionumber, to=my)
-                '''
+
             if thread_status_ == 1:  # not found
                 msg.reply("Sorry, I couldn't find info for that match. In the future "
                           "I'll account for more matches around the world.")
@@ -919,14 +910,6 @@ if __name__ == '__main__':
                         matchtype, opp, network)
                     title_text = 'Match Thread: WNT vs {} [kickoff {} ET]'.format(opp, kickoff1)
                     r.submit('ussoccer', title_text, text=body, send_replies=False)
-                    account_sid_ = 'AC2799d2a62369c35a8461b5d6e27a19ac'
-                    authtoken_ = 'bd7274f70c7d3d8c92e59d26b3905ea1'
-                    twiliocli_ = TwilioRestClient(account_sid_, authtoken_)
-                    mytwilionumber_ = '+17693012706'
-                    my_ = '+14044346571'
-                    message = twiliocli_.messages.create(body='Match Thread created'
-                                                              ' but goal.com is not providing updates',
-                                                         from_=mytwilionumber_, to=my_)
 
             sleep(60)
 
