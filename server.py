@@ -27,10 +27,6 @@ def check_messages(r):
         if 'Pi command' in msg.subject:
             msg.mark_as_read()
             logging.info('Pi command found in a PM!')
-            if 'reboot' in msg.body.lower():
-                subprocess.call("sudo reboot", shell=True)
-            if 'shutdown' in msg.body.lower():
-                subprocess.call("sudo shutdown", shell=True)
             if 'quit' in msg.body.lower():
                 logging.warning("Shutting down per Pi command!")
                 # os._exit(-1)
