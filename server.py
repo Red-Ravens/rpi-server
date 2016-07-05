@@ -19,7 +19,8 @@ import praw
 def check_messages(r):
     """
     Checks messages
-    :return: mnt,wnt = True if they are playing today
+    @param r: PRAW instanstiated reddit object
+    :return: mnt, wnt which are True if that team is playing today
     """
     logging.info('Checking messages')
     mnt, wnt = False, False
@@ -67,6 +68,7 @@ def check_messages(r):
 
 
 def mnt_matchthread():
+    # Depreciated
     path = '/media/usb/Server/mnt.txt'
     now = datetime.datetime.now()
     with open(path) as filep:  # TODO if 'Unable' in filep ???
@@ -87,6 +89,7 @@ def mnt_matchthread():
 
 
 def wnt_matchthread(r):
+    # Depreciated
     path = '/media/usb/Server/wnt.txt'
     now = datetime.datetime.now()
     with open(path) as filep:  # TODO if 'Unable' in filep ???
@@ -113,7 +116,7 @@ def wnt_matchthread(r):
 def check_wifi():
     """
     Checks for Wifi connectivity
-    :return: True if connected to wifi
+    :return: None
     """
     # Try wifi Python library?
     # http://stackoverflow.com/questions/20470626/python-script-for-raspberrypi-to-connect-wifi-automatically
